@@ -4,6 +4,10 @@ import { ArrowUpRight, Mail, MapPin, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
 import * as simpleIcons from "simple-icons";
 
+/* =========================================================
+   SIMPLE ICON TYPE
+========================================================= */
+
 type SimpleIconData = {
   title: string;
   slug: string;
@@ -11,10 +15,25 @@ type SimpleIconData = {
   hex: string;
 };
 
+/* =========================================================
+   SIMPLE ICON MAP
+========================================================= */
+
+/*
+ * simple-icons@16.28.0 tidak menyediakan siLinkedin.
+ *
+ * Karena itu:
+ * - GitHub → simple-icons
+ * - LinkedIn → SVG manual di bawah
+ */
+
 const iconMap: Record<string, string> = {
   github: "siGithub",
-  linkedin: "siLinkedin",
 };
+
+/* =========================================================
+   GET SIMPLE ICON
+========================================================= */
 
 function getSimpleIcon(name: string): SimpleIconData | null {
   const exportName = iconMap[name];
@@ -29,6 +48,10 @@ function getSimpleIcon(name: string): SimpleIconData | null {
 
   return icon ?? null;
 }
+
+/* =========================================================
+   SIMPLE ICON
+========================================================= */
 
 function SimpleIcon({
   icon,
@@ -51,16 +74,54 @@ function SimpleIcon({
   );
 }
 
+/* =========================================================
+   LINKEDIN ICON
+========================================================= */
+
+/*
+ * Menggunakan SVG manual yang sama dengan Footer.
+ *
+ * Jangan diganti menjadi siLinkedin karena export tersebut
+ * memang tidak tersedia pada simple-icons versi yang digunakan.
+ */
+
+function LinkedInIcon({ size = 14 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+      className="shrink-0"
+    >
+      <path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2ZM8.1 18.5H5.4V9.8h2.7v8.7ZM6.75 8.6a1.55 1.55 0 1 1 0-3.1 1.55 1.55 0 0 1 0 3.1ZM18.6 18.5h-2.7v-4.25c0-1.01-.02-2.31-1.41-2.31-1.41 0-1.63 1.1-1.63 2.24v4.32h-2.7V9.8h2.59v1.19h.04c.36-.68 1.24-1.4 2.55-1.4 2.73 0 3.24 1.8 3.24 4.15v4.76Z" />
+    </svg>
+  );
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
 export function Contact() {
   const githubIcon = getSimpleIcon("github");
-  const linkedinIcon = getSimpleIcon("linkedin");
 
   return (
     <section
       id="contact"
-      className="relative overflow-hidden border-t border-border py-24 sm:py-32"
+      className="
+        relative
+        overflow-hidden
+        border-t
+        border-border
+        py-24
+        sm:py-32
+      "
     >
-      {/* Accent glow */}
+      {/* =================================================
+          ACCENT GLOW
+      ================================================= */}
 
       <div
         aria-hidden="true"
@@ -80,9 +141,9 @@ export function Contact() {
       />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-        {/* =========================================
+        {/* =================================================
             HEADER
-        ========================================= */}
+        ================================================= */}
 
         <motion.div
           initial={{
@@ -104,7 +165,15 @@ export function Contact() {
           <div className="flex items-center gap-2">
             <Sparkles size={13} strokeWidth={1.6} className="text-accent" />
 
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+            <p
+              className="
+                font-mono
+                text-xs
+                uppercase
+                tracking-[0.2em]
+                text-accent
+              "
+            >
               05 / Contact
             </p>
           </div>
@@ -127,23 +196,39 @@ export function Contact() {
             SOMETHING <span className="text-accent">TOGETHER.</span>
           </h2>
 
-          <p className="mt-7 max-w-xl text-base leading-7 text-muted sm:text-lg">
+          <p
+            className="
+              mt-7
+              max-w-xl
+              text-base
+              leading-7
+              text-muted
+              sm:text-lg
+            "
+          >
             Have a project, idea, or opportunity in mind? I&apos;d be happy to
             hear about it.
           </p>
         </motion.div>
 
-        {/* =========================================
+        {/* =================================================
             CONTACT GRID
-        ========================================= */}
+        ================================================= */}
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
-          {/* =========================================
+        <div
+          className="
+            mt-14
+            grid
+            gap-5
+            lg:grid-cols-[0.9fr_1.1fr]
+          "
+        >
+          {/* =================================================
               LEFT — EMAIL CTA
-          ========================================= */}
+          ================================================= */}
 
           <motion.a
-            href="mailto:your.email@example.com"
+            href="mailto:a.mustofasolikin@gmail.com"
             initial={{
               opacity: 0,
               y: 18,
@@ -202,7 +287,9 @@ export function Contact() {
               "
             />
 
-            {/* Icon */}
+            {/* =================================================
+                MAIL ICON
+            ================================================= */}
 
             <div
               className="
@@ -225,16 +312,33 @@ export function Contact() {
               <Mail size={18} strokeWidth={1.5} />
             </div>
 
-            {/* Content */}
+            {/* =================================================
+                EMAIL CONTENT
+            ================================================= */}
 
             <div className="relative">
-              <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted">
+              <p
+                className="
+                  font-mono
+                  text-[9px]
+                  uppercase
+                  tracking-[0.16em]
+                  text-muted
+                "
+              >
                 Start a conversation
               </p>
 
               <div className="mt-2 flex items-center justify-between gap-4">
-                <p className="text-lg font-medium text-foreground sm:text-xl">
-                  your.email@example.com
+                <p
+                  className="
+                    text-lg
+                    font-medium
+                    text-foreground
+                    sm:text-xl
+                  "
+                >
+                  a.mustofasolikin@gmail.com
                 </p>
 
                 <ArrowUpRight
@@ -253,9 +357,9 @@ export function Contact() {
             </div>
           </motion.a>
 
-          {/* =========================================
+          {/* =================================================
               RIGHT — CONTACT LINKS
-          ========================================= */}
+          ================================================= */}
 
           <motion.div
             initial={{
@@ -282,19 +386,31 @@ export function Contact() {
               bg-surface/20
             "
           >
+            {/* =================================================
+                GITHUB
+            ================================================= */}
+
             <ContactLink
               label="GitHub"
-              value="github.com/yourusername"
-              href="https://github.com/yourusername"
+              value="github.com/mustofa08"
+              href="https://github.com/mustofa08"
               icon={githubIcon}
             />
 
+            {/* =================================================
+                LINKEDIN
+            ================================================= */}
+
             <ContactLink
               label="LinkedIn"
-              value="linkedin.com/in/yourusername"
-              href="https://linkedin.com/in/yourusername"
-              icon={linkedinIcon}
+              value="www.linkedin.com/in/akhmad-mustofa-solikin-595952342/"
+              href="https://www.linkedin.com/in/akhmad-mustofa-solikin-595952342/"
+              iconType="linkedin"
             />
+
+            {/* =================================================
+                LOCATION
+            ================================================= */}
 
             <ContactLink
               label="Location"
@@ -304,9 +420,9 @@ export function Contact() {
           </motion.div>
         </div>
 
-        {/* =========================================
+        {/* =================================================
             AVAILABILITY
-        ========================================= */}
+        ================================================= */}
 
         <motion.div
           initial={{
@@ -357,10 +473,27 @@ export function Contact() {
                 "
               />
 
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+              <span
+                className="
+                  relative
+                  inline-flex
+                  h-2
+                  w-2
+                  rounded-full
+                  bg-accent
+                "
+              />
             </span>
 
-            <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted">
+            <p
+              className="
+                font-mono
+                text-[9px]
+                uppercase
+                tracking-[0.14em]
+                text-muted
+              "
+            >
               Open to opportunities &amp; interesting projects
             </p>
           </div>
@@ -374,23 +507,33 @@ export function Contact() {
   );
 }
 
-/* =========================================
+/* =========================================================
    CONTACT LINK
-========================================= */
+========================================================= */
 
 type ContactLinkProps = {
   label: string;
   value: string;
   href?: string;
   icon?: SimpleIconData | null;
-  iconType?: "location";
+  iconType?: "location" | "linkedin";
 };
+
+/* =========================================================
+   CONTACT LINK COMPONENT
+========================================================= */
 
 function ContactLink({ label, value, href, icon, iconType }: ContactLinkProps) {
   const content = (
     <>
+      {/* =================================================
+          LEFT — ICON + TEXT
+      ================================================= */}
+
       <div className="flex items-center gap-4">
-        {/* Icon */}
+        {/* =================================================
+            ICON
+        ================================================= */}
 
         <div
           className="
@@ -413,6 +556,8 @@ function ContactLink({ label, value, href, icon, iconType }: ContactLinkProps) {
         >
           {icon ? (
             <SimpleIcon icon={icon} size={16} />
+          ) : iconType === "linkedin" ? (
+            <LinkedInIcon size={16} />
           ) : iconType === "location" ? (
             <MapPin size={16} strokeWidth={1.5} />
           ) : (
@@ -420,10 +565,20 @@ function ContactLink({ label, value, href, icon, iconType }: ContactLinkProps) {
           )}
         </div>
 
-        {/* Text */}
+        {/* =================================================
+            TEXT
+        ================================================= */}
 
         <div>
-          <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted">
+          <p
+            className="
+              font-mono
+              text-[9px]
+              uppercase
+              tracking-[0.14em]
+              text-muted
+            "
+          >
             {label}
           </p>
 
@@ -444,6 +599,10 @@ function ContactLink({ label, value, href, icon, iconType }: ContactLinkProps) {
         </div>
       </div>
 
+      {/* =================================================
+          ARROW
+      ================================================= */}
+
       {href && (
         <ArrowUpRight
           size={15}
@@ -460,6 +619,10 @@ function ContactLink({ label, value, href, icon, iconType }: ContactLinkProps) {
       )}
     </>
   );
+
+  /* =======================================================
+     NON-LINK ITEM
+  ======================================================= */
 
   if (!href) {
     return (
@@ -481,6 +644,10 @@ function ContactLink({ label, value, href, icon, iconType }: ContactLinkProps) {
       </div>
     );
   }
+
+  /* =======================================================
+     LINK ITEM
+  ======================================================= */
 
   return (
     <a

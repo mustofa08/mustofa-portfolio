@@ -24,13 +24,13 @@ export const projects: Project[] = [
     image: "/projects/ciptain.png",
 
     description:
-      "A full-stack web application for managing and purchasing digital invitation templates.",
+      "A full-stack web application for managing, publishing, and purchasing digital invitation templates.",
 
     techStack: ["React.js", "Tailwind CSS", "Supabase", "PostgreSQL"],
 
     highlights: [
-      "Implemented role-based authentication and authorization (Admin/User) with protected routes using Supabase Auth.",
-      "Built template management features, including CRUD operations, image uploads, categories, pricing, and publication management.",
+      "Implemented role-based authentication and authorization for Admin and User roles, including protected routes using Supabase Auth.",
+      "Built invitation template management features with CRUD operations, image uploads, categories, pricing, and publication management.",
       "Integrated PostgreSQL and Supabase Storage to support image management, search, filtering, and favorites.",
     ],
   },
@@ -47,14 +47,14 @@ export const projects: Project[] = [
     image: "/projects/moco.png",
 
     description:
-      "A responsive personal finance management web application built using React.js, Vite, Tailwind CSS, and Supabase.",
+      "A responsive personal finance management web application for tracking wallets, transactions, budgets, savings goals, and debts.",
 
     techStack: ["React.js", "Vite", "Tailwind CSS", "Supabase", "PostgreSQL"],
 
     highlights: [
       "Designed and implemented a relational PostgreSQL database for wallets, transactions, budgets, savings goals, and debt management.",
       "Developed RESTful APIs and CRUD operations for transaction management, wallet transfers, and financial tracking.",
-      "Implemented authentication, dynamic filtering, searching, and drag-and-drop interactions to improve user experience.",
+      "Implemented authentication, filtering, search, and drag-and-drop interactions to improve application usability.",
     ],
   },
 ];

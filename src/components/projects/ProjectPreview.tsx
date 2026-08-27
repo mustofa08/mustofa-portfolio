@@ -135,27 +135,37 @@ export function ProjectPreview({ project }: ProjectPreviewProps) {
                 duration: 0.35,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="absolute inset-0"
+              className="
+                absolute
+                inset-0
+                flex
+                items-center
+                justify-center
+                bg-background
+              "
             >
               {project.image ? (
-                <Image
-                  src={project.image}
-                  alt={`${project.title} project screenshot`}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                  className="
-                    object-cover
-                    object-top
-                    transition-transform
-                    duration-700
-                    hover:scale-[1.015]
-                  "
-                />
+                <div className="relative h-full w-full">
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} project screenshot`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 45vw"
+                    className="
+                      object-contain
+                      p-3
+                      transition-transform
+                      duration-700
+                      hover:scale-[1.01]
+                    "
+                  />
+                </div>
               ) : (
                 <div
                   className="
                     flex
                     h-full
+                    w-full
                     items-center
                     justify-center
                     bg-background
@@ -200,7 +210,9 @@ export function ProjectPreview({ project }: ProjectPreviewProps) {
                 </div>
               )}
 
-              {/* Subtle fade */}
+              {/* =================================================
+                  SUBTLE FADE
+              ================================================= */}
 
               <div
                 aria-hidden="true"
@@ -215,7 +227,9 @@ export function ProjectPreview({ project }: ProjectPreviewProps) {
                 "
               />
 
-              {/* Top highlight */}
+              {/* =================================================
+                  TOP HIGHLIGHT
+              ================================================= */}
 
               <div
                 aria-hidden="true"

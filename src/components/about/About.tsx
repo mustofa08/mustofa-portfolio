@@ -160,7 +160,7 @@ export function About() {
                 "
               >
                 <Image
-                  src="/profile.jpg"
+                  src="/projects/profile.jpg"
                   alt="Portrait of Akhmad Mustofa Solikin"
                   fill
                   sizes="(max-width: 1024px) 100vw, 360px"
