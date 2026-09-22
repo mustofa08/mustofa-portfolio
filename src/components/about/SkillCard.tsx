@@ -4,6 +4,7 @@ import {
   ArrowUpRight,
   Braces,
   Code2,
+  Cuboid,
   Database,
   Server,
   Wrench,
@@ -30,6 +31,10 @@ type SimpleIconData = {
   hex: string;
 };
 
+/*
+ * Category icons
+ */
+
 const categoryIcons: Record<
   string,
   ComponentType<{
@@ -42,11 +47,11 @@ const categoryIcons: Record<
   Backend: Server,
   Database: Database,
   Tools: Wrench,
+  "3D & Interactive": Cuboid,
 };
 
 /*
- * Mapping skill kita ke nama export
- * dari package simple-icons.
+ * Mapping skill names to Simple Icons exports
  */
 
 const iconMap: Record<string, string> = {
@@ -73,7 +78,15 @@ const iconMap: Record<string, string> = {
   git: "siGit",
   github: "siGithub",
   postman: "siPostman",
+
+  // 3D & Interactive
+  blender: "siBlender",
+  unity: "siUnity",
 };
+
+/*
+ * Get Simple Icon data
+ */
 
 function getSimpleIcon(name: string): SimpleIconData | null {
   const exportName = iconMap[name];
@@ -88,6 +101,10 @@ function getSimpleIcon(name: string): SimpleIconData | null {
 
   return icon ?? null;
 }
+
+/*
+ * Simple Icon component
+ */
 
 function SimpleIcon({
   icon,
@@ -109,6 +126,10 @@ function SimpleIcon({
     </svg>
   );
 }
+
+/*
+ * Skill Card component
+ */
 
 export function SkillCard({ title, description, skills }: SkillCardProps) {
   const CategoryIcon = categoryIcons[title] ?? Code2;
@@ -135,9 +156,7 @@ export function SkillCard({ title, description, skills }: SkillCardProps) {
         hover:bg-surface/50
       "
     >
-      {/* =========================================
-          TOP ACCENT
-      ========================================= */}
+      {/* Top Accent */}
 
       <div
         aria-hidden="true"
@@ -154,13 +173,11 @@ export function SkillCard({ title, description, skills }: SkillCardProps) {
         "
       />
 
-      {/* =========================================
-          HEADER
-      ========================================= */}
+      {/* Header */}
 
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-center gap-3">
-          {/* Category icon */}
+          {/* Category Icon */}
 
           <div
             className="
@@ -183,7 +200,7 @@ export function SkillCard({ title, description, skills }: SkillCardProps) {
             <CategoryIcon size={16} strokeWidth={1.6} />
           </div>
 
-          {/* Category title */}
+          {/* Category Title */}
 
           <div>
             <h4 className="text-sm font-medium text-foreground">{title}</h4>
@@ -218,15 +235,11 @@ export function SkillCard({ title, description, skills }: SkillCardProps) {
         />
       </div>
 
-      {/* =========================================
-          DESCRIPTION
-      ========================================= */}
+      {/* Description */}
 
       <p className="mt-5 text-xs leading-5 text-muted">{description}</p>
 
-      {/* =========================================
-          SKILLS
-      ========================================= */}
+      {/* Skills */}
 
       <div className="mt-5 flex flex-wrap gap-2">
         {skills.map((skill) => {
@@ -252,7 +265,7 @@ export function SkillCard({ title, description, skills }: SkillCardProps) {
                 hover:bg-accent/[0.04]
               "
             >
-              {/* Technology logo */}
+              {/* Technology Logo */}
 
               {icon && (
                 <span
@@ -268,7 +281,7 @@ export function SkillCard({ title, description, skills }: SkillCardProps) {
                 </span>
               )}
 
-              {/* Technology name */}
+              {/* Technology Name */}
 
               <span
                 className="

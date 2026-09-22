@@ -87,8 +87,8 @@ export function About() {
               sm:text-right
             "
           >
-            A developer who enjoys turning ideas into practical digital
-            products.
+            A developer focused on building practical digital products while
+            exploring 3D modeling and interactive technologies.
           </p>
         </motion.div>
 
@@ -321,7 +321,8 @@ export function About() {
                   sm:leading-10
                 "
               >
-                I enjoy turning ideas into practical digital products.
+                I build practical digital products and enjoy exploring new
+                technologies that turn ideas into useful experiences.
               </p>
 
               <p
@@ -349,8 +350,9 @@ export function About() {
                 "
               >
                 I care about creating solutions that are maintainable,
-                intuitive, and useful while continuously exploring new
-                technologies and better ways to solve problems.
+                intuitive, and useful. Alongside web development, I am currently
+                exploring 3D modeling with Blender and interactive application
+                development with Unity.
               </p>
             </div>
 
@@ -559,7 +561,8 @@ export function About() {
               "
             >
               A growing toolkit across languages, frontend, backend, databases,
-              and development tools.
+              development tools, and emerging interests in 3D and interactive
+              application development.
             </p>
           </div>
 
@@ -665,6 +668,23 @@ export function About() {
                 {
                   name: "Postman",
                   icon: "postman",
+                },
+              ]}
+            />
+
+            {/* 3D & Interactive */}
+
+            <SkillCard
+              title="3D & Interactive"
+              description="Technologies currently being explored for 3D modeling and interactive application development."
+              skills={[
+                {
+                  name: "Blender",
+                  icon: "blender",
+                },
+                {
+                  name: "Unity",
+                  icon: "unity",
                 },
               ]}
             />

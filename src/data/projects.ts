@@ -57,4 +57,23 @@ export const projects: Project[] = [
       "Implemented authentication, filtering, search, and drag-and-drop interactions to improve application usability.",
     ],
   },
+
+  {
+    id: 3,
+    title: "Plaza Prof. Supeno Djanali",
+    category: "3D Architectural Modeling",
+    status: "In Progress",
+    image: "/projects/plaza-prof-supeno-djanali.png",
+
+    description:
+      "An ongoing 3D architectural modeling project recreating Plasa Prof. Supeno Djanali using Blender, focusing on structural modeling and architectural details.",
+
+    techStack: ["Blender"],
+
+    highlights: [
+      "Developing a 3D representation of Plasa Prof. Supeno Djanali based on its architectural structure.",
+      "Practicing 3D modeling techniques to create structural elements, roof components, and supporting frameworks.",
+      "Currently refining the model's geometry, proportions, and architectural details.",
+    ],
+  },
 ];
